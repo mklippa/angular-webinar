@@ -18,4 +18,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CartItemModel.
 
 
-[0.1.0]: https://github.com/
+[0.1.0]: https://github.com/mklippa/angular-webinar/tags/v0.1.0
