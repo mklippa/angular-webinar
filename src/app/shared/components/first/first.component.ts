@@ -13,8 +13,8 @@ export class FirstComponent implements OnInit {
   price: number = 100;
   category: Category = Category.Digital;
   isAvailable: boolean = true;
-  reviews: string[] = ["Hello world!", "Excellent!", "The best one!"];
-  tags: string[] = ["Angular2+", "Homework"];
+  reviews: string[] = ['Hello world!', 'Excellent!', 'The best one!'];
+  tags: string[] = ['Angular2+', 'Homework'];
 
   constructor() { }
 
