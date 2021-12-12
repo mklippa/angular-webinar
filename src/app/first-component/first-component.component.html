@@ -1,0 +1,19 @@
+<div>
+  <h2>{{name}}</h2>
+  <h3>Description</h3>
+  <p>{{description}}</p>
+  <h3>Price</h3>
+  <p>{{price}}</p>
+  <h3>Category</h3>
+  <p>{{category}}</p>
+  <h3>Available</h3>
+  <p>{{isAvailable}}</p>
+  <h3>Reviews</h3>
+  <ul>
+    <li *ngFor="let review of reviews">{{review}}</li>
+  </ul>
+  <h3>Tags</h3>
+  <ul>
+    <li *ngFor="let tag of tags">{{tag}}</li>
+  </ul>
+</div>
