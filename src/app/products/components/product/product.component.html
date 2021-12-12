@@ -1,3 +1,20 @@
 <div>
+  <h2>{{product.name}}</h2>
+  <h3>Description</h3>
+  <p>{{product.description}}</p>
+  <h3>Price</h3>
+  <p>{{product.price}}</p>
+  <h3>Category</h3>
+  <p>{{product.category}}</p>
+  <h3>Available</h3>
+  <p>{{product.isAvailable}}</p>
+  <h3>Reviews</h3>
+  <ul>
+    <li *ngFor="let review of product.reviews">{{review}}</li>
+  </ul>
+  <h3>Tags</h3>
+  <ul>
+    <li *ngFor="let tag of product.tags">{{tag}}</li>
+  </ul>
   <button (click)="onAddToCart()">Buy</button>
 </div>
