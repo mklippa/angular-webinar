@@ -22,6 +22,8 @@ export class CartListComponent implements OnInit {
     return item.id;
   }
 
+  // ![1] === false
+  // условие надо проверять на количество элементов
   get cartListIsEmpty(): boolean {
     return !this.cartList;
   }
