@@ -13,6 +13,7 @@ export class ProductsService {
   getProducts(): ProductModel[] {
     return [
       new ProductModel(
+        1,
         'First Product',
         'First Product Description',
         10,
@@ -22,6 +23,7 @@ export class ProductsService {
         ['First Tag']
       ),
       new ProductModel(
+        2,
         'Second Product',
         'Second Product Description',
         20,

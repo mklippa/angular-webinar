@@ -1,11 +1,7 @@
 <div>
   <h2>Cart list</h2>
   <div *ngIf="!cartListIsEmpty; else elseBlock">
-    <ul>
-      <li *ngFor="let item of cartList; trackBy: trackById">
-        {{item.id}} {{item.name}}
-      </li>
-    </ul>
+    <app-cart-item *ngFor="let item of cartList; trackBy: trackById" [cartItem]="item"></app-cart-item>
   </div>
   <ng-template #elseBlock>The Cart is empty</ng-template>
 </div>

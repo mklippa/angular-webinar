@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CartItem } from '../../models/cart-item.model';
+import { CartItemModel } from '../../models/cart-item.model';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartListComponent implements OnInit {
 
-  public cartList: CartItem[] = [];
+  public cartList: CartItemModel[] = [];
 
   constructor(private cartService: CartService) { }
 
@@ -18,8 +18,8 @@ export class CartListComponent implements OnInit {
     this.cartList = this.cartService.getCartList();
   }
 
-  trackById(index: number, item: CartItem): number {
-    return item.id;
+  trackById(index: number, item: CartItemModel): string {
+    return item.name;
   }
 
   get cartListIsEmpty(): boolean {
