@@ -24,6 +24,30 @@ export class CartService {
     return this.cartList;
   }
 
+  increaseQuantity(name: string): void {
+    const item = this.cartList.find(item => item.name === name);
+
+    if (item) {
+      item.quantity++;
+    }
+  }
+
+  decreaseQuantity(name: string): void {
+    const item = this.cartList.find(item => item.name === name);
+
+    if (item) {
+      if (item.quantity > 1) {
+        item.quantity--;
+      } else {
+        this.cartList = this.cartList.filter(x => x != item);
+      }
+    }
+  }
+
+  deleteChartItem(name: string): void {
+    this.cartList = this.cartList.filter(x => x.name != name);
+  }
+
   get totalCost(): number {
     return this.cartList.reduce((sum, item) => sum + item.cost, 0);
   }

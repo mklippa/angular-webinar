@@ -9,20 +9,40 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart-list.component.css']
 })
 export class CartListComponent implements OnInit {
-
-  public cartList: CartItemModel[] = [];
-
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartList = this.cartService.getCartList();
   }
 
   trackById(index: number, item: CartItemModel): string {
     return item.name;
   }
 
+  onIncreaseClick(item: CartItemModel): void {
+    this.cartService.increaseQuantity(item.name);
+  }
+
+  onDecreaseClick(item: CartItemModel): void {
+    this.cartService.decreaseQuantity(item.name);
+  }
+
+  onDeleteClick(item: CartItemModel): void {
+    this.cartService.deleteChartItem(item.name);
+  }
+
+  get cartList(): CartItemModel[] {
+    return this.cartService.getCartList();
+  }
+
   get cartListIsEmpty(): boolean {
     return !this.cartList?.length;
+  }
+
+  get totalQuantity(): number {
+    return this.cartService.totalQuantity;
+  }
+
+  get totalCost(): number {
+    return this.cartService.totalCost;
   }
 }

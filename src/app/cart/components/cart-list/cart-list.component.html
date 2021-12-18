@@ -1,7 +1,13 @@
 <div>
   <h2>Cart list</h2>
   <div *ngIf="!cartListIsEmpty; else elseBlock">
-    <app-cart-item *ngFor="let item of cartList; trackBy: trackById" [cartItem]="item"></app-cart-item>
+    <app-cart-item *ngFor="let item of cartList; trackBy: trackById" [cartItem]="item"
+      (increaseClick)="onIncreaseClick($event)" (decreaseClick)="onDecreaseClick($event)" (deleteClick)="onDeleteClick($event)">
+    </app-cart-item>
+    <h3>Total quantity</h3>
+    <p>{{totalQuantity}}</p>
+    <h3>Total cost</h3>
+    <p>{{totalCost}}</p>
   </div>
   <ng-template #elseBlock>The Cart is empty</ng-template>
 </div>

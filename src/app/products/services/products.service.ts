@@ -31,6 +31,15 @@ export class ProductsService {
         false,
         ['Bad', 'Awful'],
         ['Second Tag']),
+      new ProductModel(
+        3,
+        'Third Product',
+        'Third Product Description',
+        25,
+        Category.Digital,
+        true,
+        ['Not Bad', 'rather good'],
+        ['Third Tag']),
     ];
   }
 }

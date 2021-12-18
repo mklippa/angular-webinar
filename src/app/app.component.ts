@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { CartService } from './cart/services/cart.service';
 import { ProductModel } from './products/models/product.model';
 
 @Component({
@@ -10,7 +11,10 @@ import { ProductModel } from './products/models/product.model';
 export class AppComponent {
   title = 'shop';
 
-  onAddToCart(product: ProductModel): void {
+  constructor(private cartService: CartService) {
+  }
 
+  onAddToCart(product: ProductModel): void {
+    this.cartService.addToCart(product.name, product.price);
   }
 }
