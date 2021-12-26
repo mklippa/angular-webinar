@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 import { CartService } from './cart/services/cart.service';
 import { ProductModel } from './products/models/product.model';
@@ -8,10 +8,15 @@ import { ProductModel } from './products/models/product.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'shop';
+export class AppComponent implements AfterViewInit {
+  @ViewChild('appTitle')
+  appTitle!: ElementRef<HTMLHeadingElement>;
 
   constructor(private cartService: CartService) {
+  }
+
+  ngAfterViewInit(): void {
+    this.appTitle.nativeElement.textContent = 'Shop';
   }
 
   onAddToCart(product: ProductModel): void {
