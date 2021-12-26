@@ -2,7 +2,8 @@
   <h2>Cart list</h2>
   <div *ngIf="!cartListIsEmpty; else elseBlock">
     <app-cart-item *ngFor="let item of cartList; trackBy: trackByName" [cartItem]="item"
-      (increaseClick)="onIncreaseClick($event)" (decreaseClick)="onDecreaseClick($event)" (deleteClick)="onDeleteClick($event)">
+      (increaseClick)="onIncreaseClick($event)" (decreaseClick)="onDecreaseClick($event)"
+      (deleteClick)="onDeleteClick($event)">
     </app-cart-item>
     <div class="row">
       <div class="col-2">
