@@ -14,7 +14,7 @@ export class CartListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  trackById(index: number, item: CartItemModel): string {
+  trackByName(index: number, item: CartItemModel): string {
     return item.name;
   }
 

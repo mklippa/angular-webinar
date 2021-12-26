@@ -14,7 +14,9 @@ export class CartService {
     const item = this.cartList.find(item => item.name === name);
 
     if (item) {
-      item.quantity++;
+      const qty = item.quantity;
+      this.deleteChartItem(item.name);
+      this.cartList.push(new CartItemModel(name, price, qty + 1));
     } else {
       this.cartList.push(new CartItemModel(name, price));
     }
