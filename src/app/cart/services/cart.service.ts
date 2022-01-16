@@ -15,6 +15,7 @@ export class CartService {
 
     if (item) {
       const qty = item.quantity;
+      // не понял, зачем удалять?
       this.deleteChartItem(item.name);
       this.cartList.push(new CartItemModel(name, price, qty + 1));
     } else {
