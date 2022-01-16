@@ -20,9 +20,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   onAddToCart(product: ProductModel): void {
-    // можно передать product
-    // а в методе addToCart использовать деструктуризацию параметра
-    // addToCart({name, price}: {name: string, price: number}): void {...}
-    this.cartService.addToCart(product.name, product.price);
+    this.cartService.addToCart(product);
   }
 }

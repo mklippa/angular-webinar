@@ -10,14 +10,11 @@ export class CartService {
 
   constructor() { }
 
-  addToCart(name: string, price: number): void {
+  addToCart({ name, price }: { name: string, price: number }): void {
     const item = this.cartList.find(item => item.name === name);
 
     if (item) {
-      const qty = item.quantity;
-      // не понял, зачем удалять?
-      this.deleteChartItem(item.name);
-      this.cartList.push(new CartItemModel(name, price, qty + 1));
+      item.quantity++;
     } else {
       this.cartList.push(new CartItemModel(name, price));
     }
