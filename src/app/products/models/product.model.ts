@@ -1,7 +1,6 @@
 import { Category } from 'src/app/shared/enums/categroy.enum';
 
 export class ProductModel {
-
   constructor(
     public id: number,
     public name: string,
@@ -10,6 +9,6 @@ export class ProductModel {
     public category: Category,
     public isAvailable: boolean,
     public reviews: string[],
-    public tags: string[],
-  ) { }
+    public tags: string[]
+  ) {}
 }
