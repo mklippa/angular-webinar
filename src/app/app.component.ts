@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Inject,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -9,6 +10,11 @@ import {
 import { CartService } from './cart/services/cart.service';
 import { ConfigOptionsService } from './core/services/config-options.service';
 import { ConstantService } from './core/services/constant.service';
+import {
+  generatedString,
+  GeneratorFactory,
+} from './core/services/generator.factory';
+import { GeneratorService } from './core/services/generator.service';
 import { ProductModel } from './products/models/product.model';
 
 @Component({
@@ -24,6 +30,11 @@ import { ProductModel } from './products/models/product.model';
         API_URL: 'http://localhost:4200',
       },
     },
+    {
+      provide: generatedString,
+      useFactory: GeneratorFactory(16),
+      deps: [GeneratorService],
+    },
   ],
 })
 export class AppComponent implements AfterViewInit, OnInit {
@@ -33,7 +44,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   constructor(
     private cartService: CartService,
     private constantService: ConstantService,
-    private configOptionsService: ConfigOptionsService
+    private configOptionsService: ConfigOptionsService,
+    @Inject(generatedString) public generatedString: string,
   ) {}
 
   ngOnInit(): void {
