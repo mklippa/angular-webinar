@@ -66,7 +66,10 @@ export class CartService {
   }
 
   get totalCost(): number {
-    return this.cartProducts.reduce((sum, item) => sum + item.cost, 0);
+    return this.cartProducts.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    );
   }
 
   get totalQuantity(): number {
