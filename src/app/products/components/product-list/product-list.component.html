@@ -1,4 +1,7 @@
 <div>
   <h2>Product list</h2>
-  <app-product *ngFor="let product of products" [product]="product" (addToCart)="onAddToCard($event)"></app-product>
+  <app-product
+    *ngFor="let product of products | async"
+    [product]="product"
+    (addToCart)="onAddToCard($event)"></app-product>
 </div>
