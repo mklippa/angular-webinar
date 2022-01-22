@@ -20,6 +20,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   onAddToCart(product: ProductModel): void {
-    this.cartService.addToCart(product);
+    this.cartService.addProduct(product);
   }
 }

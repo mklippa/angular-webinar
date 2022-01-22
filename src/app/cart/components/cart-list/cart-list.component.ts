@@ -27,11 +27,11 @@ export class CartListComponent implements OnInit {
   }
 
   onDeleteClick(item: CartItemModel): void {
-    this.cartService.deleteChartItem(item.name);
+    this.cartService.removeProduct(item.name);
   }
 
   get cartList(): CartItemModel[] {
-    return this.cartService.getCartList();
+    return this.cartService.getProducts();
   }
 
   get cartListIsEmpty(): boolean {
