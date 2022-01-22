@@ -26,6 +26,8 @@ export class CartService {
     } else {
       this.cartProducts.push(new CartItemModel(name, price));
     }
+
+    this.cartProducts = [...this.cartProducts];
   }
 
   removeProduct(name: string): void {
@@ -38,6 +40,8 @@ export class CartService {
     if (item) {
       item.quantity++;
     }
+
+    this.cartProducts = [...this.cartProducts];
   }
 
   decreaseQuantity(name: string): void {
@@ -46,8 +50,9 @@ export class CartService {
     if (item) {
       if (item.quantity > 1) {
         item.quantity--;
+        this.cartProducts = [...this.cartProducts];
       } else {
-        this.cartProducts = this.cartProducts.filter((x) => x != item);
+        this.cartProducts = this.cartProducts.filter((x) => x !== item);
       }
     }
   }
