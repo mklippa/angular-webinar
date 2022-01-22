@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IdGenerator } from './gen-id.generator';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ export class GeneratorService {
   private charSet =
     'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
-  constructor() {}
+  constructor(private idGenerator: IdGenerator) {}
 
   public generate(n: number) {
     const res = [];
@@ -19,5 +20,9 @@ export class GeneratorService {
     }
 
     return res.join('');
+  }
+
+  public getNewID(): number {
+    return this.idGenerator.getNext();
   }
 }

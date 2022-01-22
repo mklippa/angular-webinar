@@ -46,6 +46,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     private constantService: ConstantService,
     private configOptionsService: ConfigOptionsService,
     @Inject(generatedString) public generatedString: string,
+    private generatorService: GeneratorService
   ) {}
 
   ngOnInit(): void {
@@ -66,5 +67,9 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   get configOptions(): string {
     return JSON.stringify(this.configOptionsService.getConfig());
+  }
+
+  get id(): number {
+    return this.generatorService.getNewID();
   }
 }
