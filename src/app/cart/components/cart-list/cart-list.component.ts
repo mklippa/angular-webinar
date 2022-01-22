@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
 
 import { CartItemModel } from '../../models/cart-item.model';
 import { CartService } from '../../services/cart.service';
@@ -6,13 +7,18 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css']
+  styleUrls: ['./cart-list.component.css'],
+  providers: [OrderByPipe]
 })
 export class CartListComponent implements OnInit {
-  constructor(private cartService: CartService) { }
+  public sortOptions: { key: string; asc: boolean } = {
+    key: 'name',
+    asc: false,
+  };
 
-  ngOnInit(): void {
-  }
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {}
 
   trackByName(index: number, item: CartItemModel): string {
     return item.name;
@@ -28,6 +34,14 @@ export class CartListComponent implements OnInit {
 
   onDeleteClick(item: CartItemModel): void {
     this.cartService.removeProduct(item.name);
+  }
+
+  onSortChange(event: any): void {
+    this.sortOptions.key = event.target.value;
+  }
+
+  onOrderChange(event: any): void {
+    this.sortOptions.asc = event.target.checked;
   }
 
   get cartList(): CartItemModel[] {
